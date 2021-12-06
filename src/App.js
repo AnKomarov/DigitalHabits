@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const store = useSelector(store => store)
+  const dispatch = useDispatch()
+
+  console.log('store -- ', store);
+    return (
+      // <div className='app'>
+      //   {children.map(child => <Item key={ child.id } itemName={ child.title }/>)}
+      // </div>
+      <div>
+        <button onClick={() => dispatch({ type: 'ADD_DATA', parent_id: 30000 })}>QLICK</button>
+        <button onClick={() => dispatch({ type: 'ADD_DATA', parent_id: 30001 })}>QLICK2</button>
+        <button onClick={() => dispatch({ type: 'ADD_DATA', parent_id: 30007 })}>QLICK3</button>
+      </div>
+    )
 }
 
 export default App;
