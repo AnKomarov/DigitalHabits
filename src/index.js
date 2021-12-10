@@ -7,11 +7,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const app = (
-<React.StrictMode>
   <Provider store={store}>
     <App />
   </Provider>
-</React.StrictMode>
 )
 
 ReactDOM.render(

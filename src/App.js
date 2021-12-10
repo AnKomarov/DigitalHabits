@@ -1,22 +1,28 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Item } from './Components/Item'
 import './App.css';
 
 
 function App() {
-  const store = useSelector(store => store)
-  const dispatch = useDispatch()
-
-  console.log('store -- ', store);
-    return (
-      // <div className='app'>
-      //   {children.map(child => <Item key={ child.id } itemName={ child.title }/>)}
-      // </div>
-      <div>
-        <button onClick={() => dispatch({ type: 'ADD_DATA', parent_id: 30000 })}>QLICK</button>
-        <button onClick={() => dispatch({ type: 'ADD_DATA', parent_id: 30001 })}>QLICK2</button>
-        <button onClick={() => dispatch({ type: 'ADD_DATA', parent_id: 30007 })}>QLICK3</button>
-      </div>
-    )
+  const data = useSelector(store => store.data) || []
+  // const newData = []
+  // data.forEach(element => {
+  //   const filteredData = data.filter(f => element.id === f.parent_id)
+  //   filteredData.forEach(elem => newData.push(elem))
+  // });
+  // console.log('newData - ', [...new Set(newData)]);
+  console.log(data);
+  return (
+    <div className='container'>
+      {data.map(item => (
+        <Item
+          key={item.id}
+          itemName={item.title}
+          id={item.id}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default App;
